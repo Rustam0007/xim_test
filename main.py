@@ -1,8 +1,7 @@
 import os
 import fitz
-from pdf2png import convert_pdf_to_png
-from barcodeReader import read_barcode_from_image
-from collections import defaultdict
+from lib.pdf2png import convert_pdf_to_png
+from lib.barcodeReader import read_barcode_from_image
 
 
 def extract_pdf_info(path, barcodeValue):
@@ -45,10 +44,10 @@ def compare_pdfs(first_pdf, second_pdf, barcode):
 
 
 if __name__ == "__main__":
-    pdf_file_path = "test_task.pdf"
-    file_path_2 = "test_task2.pdf"
-    page_number = 0  # Номер страницы (начиная с 0)
-    output_folder = "./"  # Папка для сохранения изображений
+    pdf_file_path = "pdfFile/test_task.pdf"
+    file_path_2 = "pdfFile/test_task2.pdf"
+    page_number = 0
+    output_folder = "img/"
 
     barcode_image_path = convert_pdf_to_png(pdf_file_path, page_number, output_folder)
     barcode_values = read_barcode_from_image(barcode_image_path)
